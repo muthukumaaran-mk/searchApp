@@ -1,0 +1,31 @@
+export const getSearchTerm = () => {
+    const rawSearchTerm = document.getElementById("search").value.trim();
+    const regex = /[ ]{2,}/gi;
+    const searchTerm = rawSearchTerm.replaceAll(regex, " ");
+    return searchTerm;
+};
+
+export const retriveSearchResults = async(searchTerm) => {
+    const wikiSearchString = getWikiSearchString(searchTerm);
+    const wikiSearchResults = await requestData(wikiSearchString);
+};
+
+const getWikiSearchString = (searchTerm) => {
+    const maxChars = getMaxChars();
+    const rawSearchString = `https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`;
+    const searchString = encodeURI(rawSearchString);
+    return searchString;
+};
+
+const getMaxChars = () => {
+    const width = window.innerWidth || document.body.clientWidth;
+    let maxChars;
+    if (maxChars < 414) maxChars = 65;
+    if (maxChars >= 414 && maxChars < 1400) maxChars = 100;
+    if (maxChars < 1400) maxChars= 130;
+    return maxChars;
+};
+
+const requestData = async(searchString) => {
+    
+}
