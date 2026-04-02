@@ -5,7 +5,8 @@ export const setSearchFocus = () => {
 export const showClearTextButton = () => {
     const search = document.getElementById("search");
     const clear = document.getElementById("clear");
-    if(search.Value.length) {
+    if(search.value.length > 0) {
+        console.log(search);
         clear.classList.remove("none");
         clear.classList.add("flex");
     } else {
@@ -13,3 +14,19 @@ export const showClearTextButton = () => {
         clear.classList.remove("flex");
     };
 };
+
+export const clearSearchText = (event) => {
+    event.preventDefault();
+    document.getElementById("search").value = "";
+    const clear = document.getElementById("clear");
+    clear.classList.add("none");
+    clear.classList.remove("flex");
+    setSearchFocus();
+};
+
+export const clearPush = (event) => {
+    if(event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        document.getElementById("clear").click();
+    };
+}

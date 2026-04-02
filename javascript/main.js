@@ -1,7 +1,6 @@
-import { getSearchTerm, retriveSearchResult } from "./dataFunctions";
-import { setSearchFocus, showClearTextButton } from "./searchBar";
-import { deleteSearchResult, buildSearchResults, clearStatsLine, setStatsLine } from "./searchResult";
-import { setStatsLine } from "./searchResult";
+import { getSearchTerm, retriveSearchResult } from "./dataFunctions.js";
+import { clearSearchText, setSearchFocus, showClearTextButton, clearPush } from "./searchBar.js";
+import { deleteSearchResult, buildSearchResults, clearStatsLine, setStatsLine } from "./searchResult.js";
 
 document.addEventListener("readystatechange", (event) => {
     if(event.target.readyState) {
@@ -12,7 +11,9 @@ document.addEventListener("readystatechange", (event) => {
 const initApp = () => {
     const search = document.getElementById("search");
     search.addEventListener("input", showClearTextButton);
-    
+    const clear =document.getElementById("clear");
+    clear.addEventListener("click", clearSearchText);
+    clear.addEventListener("keydown", clearPush);
     const form = document.getElementById("searchBar");
     form.addEventListener("submit", submitTheSearch);
 };
@@ -25,6 +26,7 @@ const submitTheSearch = (event) => {
 };
 
 const processTheSearch = async() => {
+    clearStatsLine();
     const searchTerm = getSearchTerm();
     if(searchTerm === "") return;
     const resultArray = await retriveSearchResult(searchTerm);

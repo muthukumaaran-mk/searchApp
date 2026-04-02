@@ -1,5 +1,5 @@
 export const deleteSearchResult = () => {
-    const parentElement = document.getElementById("searchResult");
+    const parentElement = document.getElementById("searchResults");
     let child = parentElement.lastElementChild;
     while(child) {
         parentElement.removeChild(child);
