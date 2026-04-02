@@ -194,7 +194,24 @@ margin-right: 10px;}
   line-height: 1.4;
   max-height: 60px;
   overflow: hidden;
-}
+};
+
+.resultDescription {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+};
+
+@media (min-width: 768px) {
+  .resultDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+};
 
 /* GOOGLE COLORS */
 .blue { color: #4285f4; }
