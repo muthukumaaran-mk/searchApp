@@ -33,5 +33,5 @@ export const clearPush = (event) => {
 
 export const activateSearchView = async() => {
     const main = document.querySelector("main");
-    await main.classList.add("mainActive");
+    main.classList.add("mainActive");
 }
