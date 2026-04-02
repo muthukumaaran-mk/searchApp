@@ -36,7 +36,7 @@ const requestData = async(searchString) => {
         const response = await fetch(searchString);
         const data = await response.json();
         return data;
-    } catch {
+    } catch (err) {
         console.error(err);
     }
 };

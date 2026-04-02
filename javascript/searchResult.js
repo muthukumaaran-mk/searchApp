@@ -30,7 +30,7 @@ const createResultItem = (result) => {
     const resultTitle = document.createElement("div");
     resultTitle.classList.add("resultTitle");
     const link = document.createElement("a");
-    link.href = 'https://en.wikipedia.org/?curid=$(result.id}';
+    link.href = link.href = `https://en.wikipedia.org/?curid=${result.id}`;
     link.textContent = result.title;
     link.target = "_blank";
     resultTitle.append(link);
@@ -42,7 +42,7 @@ const createResultImage = (result) => {
     const resultImage = document.createElement("div");
     resultImage.classList.add("resultImage");
     const img = document.createElement("img");
-    img.scr = result.image;
+    img.src = result.img;
     img.alt = result.title;
     resultImage.append(img);
     return resultImage;

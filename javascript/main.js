@@ -1,6 +1,10 @@
 import { getSearchTerm, retriveSearchResult } from "./dataFunctions.js";
-import { clearSearchText, setSearchFocus, showClearTextButton, clearPush } from "./searchBar.js";
+import { clearSearchText, setSearchFocus, showClearTextButton, clearPush, activateSearchView} from "./searchBar.js";
 import { deleteSearchResult, buildSearchResults, clearStatsLine, setStatsLine } from "./searchResult.js";
+
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
 
 document.addEventListener("readystatechange", (event) => {
     if(event.target.readyState) {
@@ -16,12 +20,14 @@ const initApp = () => {
     clear.addEventListener("keydown", clearPush);
     const form = document.getElementById("searchBar");
     form.addEventListener("submit", submitTheSearch);
+    setSearchFocus();
 };
 
-const submitTheSearch = (event) => {
+const submitTheSearch = async(event) => {
     event.preventDefault();
     deleteSearchResult();
-    processTheSearch();
+    await processTheSearch();
+    activateSearchView();
     setSearchFocus();
 };
 

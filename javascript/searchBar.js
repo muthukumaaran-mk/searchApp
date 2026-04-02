@@ -29,4 +29,9 @@ export const clearPush = (event) => {
         event.preventDefault();
         document.getElementById("clear").click();
     };
+};
+
+export const activateSearchView = async() => {
+    const main = document.querySelector("main");
+    await main.classList.add("mainActive");
 }
