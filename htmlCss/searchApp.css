@@ -45,15 +45,9 @@ main {
   font-weight: 700;
 }
 
-.c1 { color: #4285f4; }
+.c1 { color: #eaeaea }
 .c2 { color: #ea4335; }
-.c3 { color: #fbbc05; }
-.c4 { color: #34a853; }
-.c5 { color: #4285f4;
-margin-right: 10px;}
-.c6 { color: #ea4335; }
-.c7 { color: #fbbc05; }
-.c8 { color: #34a853; }
+
 
 /* SEARCH BAR */
 .searchBar {

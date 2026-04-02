@@ -70,3 +70,5 @@ export const setStatsLine = (numberOfResult) => {
         statsLine.textContent = "Sorry no results.";
     };
 };
+
+
